@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
+use App\Models\shizz;
 
 
 Route::get('/', function () {
@@ -14,9 +15,14 @@ Route::get('/jobs', function () {
 });
 Route::get('/jobs/{id}', function ($id) {
     $job = Job::find($id);
-
     return view('job',['job'=>$job]);
 });
 Route::get('/contact', function () {
-    return view('Contact');
+    return view('contact', [
+    'jobs' => shizz::all()
+        ]);
+});
+Route::get('/contacts/{id}', function ($id) {
+    $job = shizz::find($id);
+    return view('contacts',['job'=>$job]);
 });
