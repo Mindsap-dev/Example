@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
 use App\Models\shizz;
+use App\Http\Controllers\StupidDataController;
 
 Route::get('/', function () {
     return view('home');
@@ -26,3 +27,4 @@ Route::get('/contacts/{id}', function ($id) {
     $job = shizz::find($id);
     return view('contacts',['job'=>$job]);
 });
+Route::get('/api/stupid-data', [StupidDataController::class, 'index']);
