@@ -27,4 +27,7 @@ Route::get('/contacts/{id}', function ($id) {
     $job = shizz::find($id);
     return view('contacts',['job'=>$job]);
 });
+Route::get('/stupid-data', function () {
+    return view('stupid-data');
+});
 Route::get('/api/stupid-data', [StupidDataController::class, 'index']);

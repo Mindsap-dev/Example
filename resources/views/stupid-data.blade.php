@@ -42,15 +42,15 @@
 
                 // Initialize jqxGrid
                 $("#myGrid").jqxGrid({
-                    width: 600,
+                    width: 900,
                     source: dataAdapter,
                     columnsresize: true,
                     columns: [
                         { text: 'ID', datafield: 'id', width: 50 },
                         { text: 'Name', datafield: 'name', width: 200 },
-                        { text: 'Email', datafield: 'email', width: 50 },
-                        { text: 'Phone', datafield: 'phone', width: 300 },
-                        { text: 'Is_Stupid', datafield: 'is_stupid', width: 300 },
+                        { text: 'Email', datafield: 'email', width: 300 },
+                        { text: 'Phone', datafield: 'phone', width: 200 },
+                        { text: 'Is_Stupid', datafield: 'is_stupid', width: 100 },
                     ]
                 });
             },
