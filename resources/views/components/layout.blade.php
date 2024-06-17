@@ -32,6 +32,7 @@
                             <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                             <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
                             <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                            <x-nav-link href="/stupid-data" :active="request()->is('stupid-data')">Data</x-nav-link>
                         </div>
                     </div>
                 </div>

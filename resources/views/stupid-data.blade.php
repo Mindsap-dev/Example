@@ -43,6 +43,7 @@
                 // Initialize jqxGrid
                 $("#myGrid").jqxGrid({
                     width: 900,
+                    height: 900,
                     source: dataAdapter,
                     columnsresize: true,
                     columns: [
