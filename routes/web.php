@@ -31,3 +31,4 @@ Route::get('/stupid-data', function () {
     return view('stupid-data');
 });
 Route::get('/api/stupid-data', [StupidDataController::class, 'index']);
+
