@@ -1,9 +1,9 @@
 <x-layout>
     <br>
     <x-slot:heading>
-        Test Page
+        Contact Data Grid
     </x-slot:heading>
-    <h1><strong>Hello Test page</strong></h1>
+    <h1><strong>Contact Data</strong></h1>
 
     <!DOCTYPE html>
     <html lang="en">

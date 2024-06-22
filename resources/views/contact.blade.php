@@ -3,14 +3,18 @@
     <x-slot:heading>
         Contact Page
     </x-slot:heading>
-    <h1><strong>Hello contact page</strong></h1>
+    <h1><strong>Contacts</strong></h1>
 
-    <ul>
+    <div>
         @foreach($jobs as $job)
-            <li>
-                <a href="/contacts/{{$job['id']}}" class="text-blue-500 hover:underline">
-                    {{$job['name']}}: Email {{$job['email']}} : Phone {{$job['phone'] }}: Is Stupid {{$job['is_stupid']}}
-            </li>
+            <div>
+                <a href="/contacts/{{$job['id']}}" class="block px-6 py-3 border border-gray-200 rounded-lg">
+                  <strong>{{$job['name']}}</strong>: Email {{$job['email']}} : Phone {{$job['phone'] }}: Is Stupid {{$job['is_stupid']}}
+                </a>
+            </div>
         @endforeach
-    </ul>
+    </div>
 </x-layout>
+
+
+
