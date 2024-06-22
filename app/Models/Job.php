@@ -13,7 +13,8 @@ class Job extends Model{
 
     protected $table = 'job_listings';
 
-    protected $fillable =['title','Salary'];
+    protected $fillable =['employer_id','title','Salary'];
+
 
     public function employer()
     {
