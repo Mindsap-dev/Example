@@ -9,7 +9,7 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('/jobs', function () {
-    $jobs=Job::with('employer')->paginate(10);
+    $jobs=Job::with('employer')->latest()->paginate(10);
     return view('jobs.index', compact('jobs'));
     //Remember the compact variable - shorthand for ['jobs' => $jobs]
 });
