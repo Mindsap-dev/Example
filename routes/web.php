@@ -9,10 +9,9 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('/jobs', function () {
-    $jobs=Job::with('employer')->paginate(5);
-    return view('jobs.index', [
-        'jobs' => $jobs
-    ]);
+    $jobs=Job::with('employer')->paginate(10);
+    return view('jobs.index', compact('jobs'));
+    //Remember the compact variable - shorthand for ['jobs' => $jobs]
 });
 Route::get('/jobs/create', function () {
     return view('jobs.create');
@@ -34,15 +33,21 @@ Route::post('/jobs', function(){
 
 Route::get('/contact', function () {
     return view('contact', [
-        'jobs' => shizz::all()
+        'jobs' => shizz::paginate(10)
     ]);
 });
+
 Route::get('/contacts/{id}', function ($id) {
     $job = shizz::find($id);
     return view('contacts',['job'=>$job]);
 });
+
 Route::get('/stupid-data', function () {
     return view('stupid-data');
 });
+
 Route::get('/api/stupid-data', [StupidDataController::class, 'index']);
 
+Route::get('/jobs/create', function () {
+    return view('jobs.create');
+});
