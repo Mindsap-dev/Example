@@ -26,7 +26,7 @@ Route::get('/jobs/{id}', function ($id) {
 Route::post('/jobs', function(){
     Job::create ([
         'title'=>request('title'),
-        'salary'=>request('salary'),
+        'Salary'=>request('Salary'),
         'employer_id'=>1
     ]);
     return redirect('/jobs');
