@@ -14,7 +14,7 @@ class Job extends Model{
     protected $table = 'job_listings';
 
     protected $fillable =['employer_id','title','Salary'];
-
+// protected $guarded = [];  would effectively make all fields able to be fillable
 
     public function employer()
     {
