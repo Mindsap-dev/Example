@@ -8,20 +8,27 @@ use App\Http\Controllers\StupidDataController;
 Route::get('/', function () {
     return view('home');
 });
+
+// Index
 Route::get('/jobs', function () {
     $jobs=Job::with('employer')->latest()->paginate(10);
     return view('jobs.index', compact('jobs'));
     //Remember the compact variable - shorthand for ['jobs' => $jobs]
 });
+
+// Create
 Route::get('/jobs/create', function () {
     return view('jobs.create');
 });
+
+// Show
 Route::get('/jobs/{id}', function ($id) {
     $job = Job::find($id);
 
     return view('jobs.show',['job'=>$job]);
 });
 
+// Store
 Route::post('/jobs', function(){
     request()->validate([
         'title' => ['required', 'min:3'],
@@ -34,6 +41,35 @@ Route::post('/jobs', function(){
     ]);
     return redirect('/jobs');
 });
+
+// Edit
+Route::get('/jobs/{id}/edit', function ($id) {
+    $job = Job::find($id);
+
+    return view('jobs.edit',['job'=>$job]);
+});
+
+// Update
+Route::patch('/jobs/{id}', function ($id) {
+    request()->validate([
+        'title' => ['required', 'min:3'],
+        'salary' => ['required'],
+    ]);
+    //authorize (on hold...)
+    $job = Job::findOrFail($id);
+    $job->title=request('title');
+    $job->salary=request('salary');
+    $job->save();
+    return redirect('/jobs/' . $job->id);
+});
+
+//Delete
+Route::delete('/jobs/{id}', function ($id) {
+    $job = Job::findOrFail($id);
+    $job->delete();
+    return redirect('/jobs');
+});
+
 
 Route::get('/contact', function () {
     return view('contact', [
