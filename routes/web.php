@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\StupidData;
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
 use App\Models\shizz;
@@ -36,7 +37,7 @@ Route::post('/jobs', function(){
     ]);
     Job::create ([
         'title'=>request('title'),
-        'Salary'=>request('Salary'),
+        'salary'=>request('salary'),
         'employer_id'=>1
     ]);
     return redirect('/jobs');
