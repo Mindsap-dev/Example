@@ -77,6 +77,11 @@ Route::get('/contact', function () {
         'jobs' => shizz::paginate(10)
     ]);
 });
+//Route::get('/contact', function () {
+//    return view('contact', [
+//        'mikes' => shizz::paginate(10)
+//    ]);
+//}); This is an example to show me the logic of the sentence syntax
 
 Route::get('/contacts/{id}', function ($id) {
     $job = shizz::find($id);
